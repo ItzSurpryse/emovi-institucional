@@ -1,79 +1,130 @@
 import Header from "@/app/components/Header";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 
-function Bloco({
-  titulo,
-  texto,
-}: {
-  titulo: string;
-  texto: string;
-}) {
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 40,
-        alignItems: "center",
-        marginBottom: 80,
-      }}
-      
-    >
-      {/* IMAGEM PLACEHOLDER */}
-      <div
-        style={{
-          width: "100%",
-          height: 260,
-          background: "#000",
-          borderRadius: 8,
-        }}
-      />
-
-      {/* TEXTO */}
-      <div>
-        <h3 style={{ marginBottom: 12 }}>{titulo}</h3>
-        <p style={{ color: "#ccc", lineHeight: 1.6 }}>{texto}</p>
-      </div>
-    </div>
-  );
-  
-}
+const itens = [
+  {
+    titulo: "Kit Completo",
+    preco: "R$ 99,90",
+    atributos: [
+      "Tecido Confort",
+      "Proteção UV 50+",
+      "Proteção Antimicrobiana",
+      "Escudo Sublimado",
+      "Modelagem Tradicional",
+      "Sem limite de patrocinadores",
+      "Nomes e números individuais incluídos",
+      "Opções de Gola: Gola V / Viva-O / Bayard",
+    ],
+  },
+  {
+    titulo: "Camisa",
+    preco: "R$ 47,00",
+    atributos: [
+      "Tecido Confort",
+      "Proteção UV 50+",
+      "Proteção Antimicrobiana",
+      "Escudo Sublimado",
+      "Modelagem Tradicional",
+      "Sem limite de patrocinadores",
+      "Nomes e números individuais incluídos",
+      "Opções de Gola: Gola V / Viva-O / Bayard",
+    ],
+  },
+  {
+    titulo: "Calção",
+    preco: "R$ 39,50",
+    atributos: [
+      "Tecido VeloSport",
+      "Escudo Sublimado",
+      "Modelagem Tradicional",
+      "Sem limite de patrocinadores",
+      "Números individuais incluídos",
+    ],
+  },
+  {
+    titulo: "Meião",
+    preco: "R$ 18,00",
+    atributos: [
+      "Cano alto tradicional",
+      "Tecelagem reforçada em 4 fios",
+      "Excelente durabilidade e resistência",
+      "Sem personalização",
+    ],
+  },
+];
 
 export default function UniformesPage() {
   return (
     <>
       <Header />
 
-      <main className="container">
-        {/* TOPO */}
-        <section className="section">
-          <h1>Uniformes Esportivos</h1>
-          <p>
-            Produzimos uniformes personalizados para times, escolas, empresas
-            e eventos esportivos, sempre com foco em qualidade e conforto.
-          </p>
-        </section>
+      <main className="container" style={{ paddingTop: 60, paddingBottom: 120 }}>
+        <h1 style={{ fontSize: 36, marginBottom: 24 }}>Uniformes</h1>
 
-        {/* BLOCOS (IGUAL GOOGLE SITES) */}
-        <Bloco
-          titulo="Uniformes Esportivos"
-          texto="Camisas, shorts e conjuntos esportivos personalizados para times amadores e profissionais."
-        />
+        <p style={{ color: "#ccc", marginBottom: 40 }}>
+          Confira nossos produtos disponíveis com seus atributos e valores por
+          item, assim como na página original.
+        </p>
 
-        <Bloco
-          titulo="Uniformes Escolares"
-          texto="Uniformes personalizados para escolas, turmas, eventos e competições escolares."
-        />
+        {itens.map((item) => (
+          <section
+            key={item.titulo}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 2fr",
+              gap: 24,
+              alignItems: "start",
+              marginBottom: 60,
+            }}
+          >
+            {/* IMAGEM PLACEHOLDER */}
+            <div
+              style={{
+                background: "#000",
+                height: "200px",
+                borderRadius: 8,
+              }}
+            />
 
-        <Bloco
-          titulo="Agasalhos"
-          texto="Agasalhos esportivos ideais para viagens, frio e uso no dia a dia."
-        />
+            {/* TEXTO */}
+            <div>
+              <h2 style={{ fontSize: 28 }}>{item.titulo}</h2>
+              <p
+                style={{
+                  fontSize: 18,
+                  fontWeight: "bold",
+                  marginBottom: 8,
+                }}
+              >
+                {item.preco}
+              </p>
 
-        <Bloco
-          titulo="Corta-Ventos"
-          texto="Corta-ventos leves e resistentes, totalmente personalizados."
-        />
+              <ul style={{ color: "#ccc", marginBottom: 12 }}>
+                {item.atributos.map((atr) => (
+                  <li key={atr} style={{ marginBottom: 4 }}>
+                    • {atr}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={`https://wa.me/554799197756?text=${encodeURIComponent(
+                  `Olá! Gostaria de orçamento para ${item.titulo}`
+                )}`}
+                target="_blank"
+                style={{
+                  display: "inline-block",
+                  marginTop: 8,
+                  color: "#25D366",
+                  fontWeight: "bold",
+                  textDecoration: "underline",
+                }}
+              >
+                Solicitar Orçamento
+              </a>
+            </div>
+          </section>
+        ))}
       </main>
 
       <WhatsAppButton />
