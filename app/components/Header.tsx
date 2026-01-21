@@ -26,11 +26,16 @@ export default function Header() {
           href="/personalizacao"
           style={{ color: "#fff", textDecoration: "none" }}
         >
-          Personalização
+          Uniformes
+        </Link>
+        <Link href="/uniformes" style={{ color: "#fff", textDecoration: "none" }}>
+
+           Personalização
         </Link>
         <Link href="/contato" style={{ color: "#fff", textDecoration: "none" }}>
           Contato
         </Link>
+         
       </nav>
     </header>
   );
