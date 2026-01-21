@@ -1,42 +1,46 @@
-"use client";
-
-import Link from "next/link";
-
 export default function Header() {
-  return (
-    <header
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "20px 0",
-        marginBottom: 60,
-      }}
-    >
-      <h1 style={{ fontSize: 24 }}>Emovi Sports</h1>
-
-      <nav style={{ display: "flex", gap: 20 }}>
-        <Link href="/" style={{ color: "#fff", textDecoration: "none" }}>
-          Home
-        </Link>
-        <Link href="/produtos" style={{ color: "#fff", textDecoration: "none" }}>
-          Produtos
-        </Link>
-        <Link
-          href="/personalizacao"
-          style={{ color: "#fff", textDecoration: "none" }}
+    return (
+      <header
+        style={{
+          width: "100%",
+          background: "#121212",
+          borderBottom: "1px solid #2a2a2a",
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingTop: 20,
+            paddingBottom: 20,
+          }}
         >
-          Uniformes
-        </Link>
-        <Link href="/uniformes" style={{ color: "#fff", textDecoration: "none" }}>
-
-           Personalização
-        </Link>
-        <Link href="/contato" style={{ color: "#fff", textDecoration: "none" }}>
-          Contato
-        </Link>
-         
-      </nav>
-    </header>
-  );
-}
+          {/* LOGO / NOME */}
+          <strong style={{ fontSize: 18 }}>
+            Emovi Sports
+          </strong>
+  
+          {/* MENU */}
+          <nav
+            style={{
+              display: "flex",
+              gap: 24,
+              fontSize: 15,
+            }}
+          >
+            <a href="/">Início</a>
+            <a href="/uniformes">Uniformes</a>
+            <a
+              href="https://wa.me/554799197756"
+              target="_blank"
+            >
+              Contato
+            </a>
+          </nav>
+        </div>
+      </header>
+    );
+  }
+  
